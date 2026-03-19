@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: todo-service
+  labels:
+    app: todo-service
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: todo-service
+  template:
+    metadata:
+      labels:
+        app: todo-service
+    spec:
+      containers:
+        - name: todo-service
+          image: rushigadekar/todo-service:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8081
+              name: http
+          readinessProbe:
+            httpGet:
+              path: /actuator/health
+              port: http
+            initialDelaySeconds: 10
+            periodSeconds: 10
+            failureThreshold: 3
+          livenessProbe:
+            httpGet:
+              path: /actuator/health
+              port: http
+            initialDelaySeconds: 30
+            periodSeconds: 30
+            failureThreshold: 3
+          resources:
+            requests:
+              cpu: "250m"
+              memory: "256Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"

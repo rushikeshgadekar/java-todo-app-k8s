@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo Application</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .nav-links {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .nav-links a {
+            display: inline-block;
+            margin: 0 10px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+        .nav-links a:hover {
+            background-color: #0056b3;
+        }
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .section h2 {
+            color: #555;
+            margin-top: 0;
+        }
+        .api-endpoint {
+            background-color: #f8f9fa;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+        .method {
+            font-weight: bold;
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Todo Application</h1>
+
+        <div class="nav-links">
+            <a href="/web/create">Create New Todo</a>
+            <a href="/web/todos">Show All Todos</a>
+            <a href="/swagger-ui.html">API Documentation</a>
+        </div>
+
+        <div class="section">
+            <h2>Web Interface</h2>
+            <p>Use the web interface to manage todos with user-friendly forms:</p>
+            <ul>
+                <li><a href="/web/create">Create Todo Form</a> - Add new todos with validation</li>
+                <li><a href="/web/todos">Show All Todos</a> - View all existing todos</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>API Endpoints</h2>
+            <p>You can also interact with the API directly:</p>
+
+            <div class="api-endpoint">
+                <span class="method">POST</span> /todo/create
+                <br>Create a new todo (JSON)
+            </div>
+
+            <div class="api-endpoint">
+                <span class="method">GET</span> /todo/todos
+                <br>Get all todos
+            </div>
+
+            <div class="api-endpoint">
+                <span class="method">GET</span> /todo/{id}
+                <br>Get todo by ID
+            </div>
+
+            <div class="api-endpoint">
+                <span class="method">PUT</span> /todo/update
+                <br>Update existing todo
+            </div>
+
+            <div class="api-endpoint">
+                <span class="method">DELETE</span> /todo/delete/{id}
+                <br>Delete todo by ID
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>API Documentation</h2>
+            <p>Full API documentation is available at: <a href="/swagger-ui.html">Swagger UI</a></p>
+        </div>
+    </div>
+</body>
+</html>

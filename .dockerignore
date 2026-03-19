@@ -1,0 +1,16 @@
+# Maven
+target/
+.mvn/
+mvnw
+mvnw.cmd
+
+# IDE
+*.iml
+.idea/
+.vscode/
+
+# Git
+.git/
+
+# Optional
+out/
